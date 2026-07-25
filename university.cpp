@@ -10,9 +10,12 @@ University::University(string uni_name, string uni_address)
 {
 }
 
-void University::addDepartment(string dep_name, string dep_id)
+Department* University::addDepartment(string dep_name, string dep_id)
 {
-    departments.push_back(new Department(dep_name, dep_id, this));
+    Department* temp_dep = new Department(dep_name, dep_id, this);
+    departments.push_back(temp_dep);
+
+    return temp_dep;
 }
 
 void University::displayDetails()
@@ -41,6 +44,9 @@ void University::displayDetails()
 
 
 University::~University(){
+
+    cout << "university destructor called"<<endl;
+
      for (Department* department : departments)
     {
         delete department;

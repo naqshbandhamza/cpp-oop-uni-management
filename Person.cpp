@@ -16,3 +16,7 @@ void Person::displayDetails(){
     cout<<this->person_email<<endl;
     cout<<this->person_phone<<endl;
 }
+
+Person::~Person(){
+    cout << "Person destructor called"<<endl;
+}

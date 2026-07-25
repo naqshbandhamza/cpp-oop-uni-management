@@ -87,6 +87,8 @@ void Section::displayDetails()
 
 Section::~Section()
 {
+    cout << "Section destructor called"<<endl;
+
     for(Attendance* attendance : attendance_records)
     {
         delete attendance;

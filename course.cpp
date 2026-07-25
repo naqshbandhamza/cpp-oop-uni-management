@@ -2,6 +2,7 @@
 #include "course.h"
 #include "section.h"
 #include "department.h"
+#include "teacher.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ Course::Course(
 //     sections.push_back(section);
 // }
 
-void Course::addSection(
+Section* Course::addSection(
     string section_id,
     string section_name,
     string semester,
@@ -31,16 +32,19 @@ void Course::addSection(
     Teacher* assigned_teacher
 )
 {
-    sections.push_back(
-        new Section(
-            section_id,
-            section_name,
-            semester,
-            schedule,
-            this,
-            assigned_teacher
-        )
+    Section* temp_sec =  new Section(
+        section_id,
+        section_name,
+        semester,
+        schedule,
+        this,
+        assigned_teacher
     );
+    sections.push_back(
+       temp_sec
+    );
+
+    return temp_sec;
 }
 
 
@@ -71,6 +75,9 @@ void Course::displayDetails()
 }
 
 Course::~Course(){
+
+    cout << "Course destructor called"<<endl;
+
     for (Section* section : sections)
     {
         delete section;

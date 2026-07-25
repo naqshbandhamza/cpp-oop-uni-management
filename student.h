@@ -19,4 +19,5 @@ public:
     Student(string person_name, string person_id, string person_email, string person_phone,string student_rollno,int student_semester );
     void addSection(Section* section);
     void displayDetails();
+    ~Student();
 };

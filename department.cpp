@@ -26,24 +26,26 @@ Department::Department(
 //     teachers.push_back(teacher);
 // }
 
-void Department::addCourse(
+Course* Department::addCourse(
     string course_name,
     string course_id,
     int course_credits
 )
 {
-    courses.push_back(
-        new Course(
-            course_name,
-            course_id,
-            course_credits,
-            this
-        )
+    Course* temp_course = new Course(
+        course_name,
+        course_id,
+        course_credits,
+        this
     );
+
+    courses.push_back(temp_course);
+
+    return temp_course;
 }
 
 
-void Department::addTeacher(
+Teacher* Department::addTeacher(
     string person_name,
     string person_id,
     string person_email,
@@ -54,19 +56,23 @@ void Department::addTeacher(
     double teacher_salary
 )
 {
-    teachers.push_back(
-        new Teacher(
-            person_name,
-            person_id,
-            person_email,
-            person_phone,
-            teacher_employeeid,
-            teacher_specialization,
-            teacher_designation,
-            teacher_salary,
-            this
-        )
+    Teacher* temp_teach = new Teacher(
+        person_name,
+        person_id,
+        person_email,
+        person_phone,
+        teacher_employeeid,
+        teacher_specialization,
+        teacher_designation,
+        teacher_salary,
+        this
     );
+
+    teachers.push_back(
+        temp_teach
+    );
+
+    return temp_teach;
 }
 
 
@@ -95,6 +101,9 @@ void Department::displayDetails()
 }
 
 Department::~Department(){
+
+    cout << "Department destructor called"<<endl;
+
     for (Course* course : courses)
     {
         delete course;

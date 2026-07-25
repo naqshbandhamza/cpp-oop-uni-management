@@ -24,3 +24,7 @@ void Student::displayDetails(){
     cout<<this->student_semester<<endl;
     cout<<this->student_cgpa<<endl;
 }
+
+Student::~Student(){
+    cout << "Student destructor called"<<endl;
+}

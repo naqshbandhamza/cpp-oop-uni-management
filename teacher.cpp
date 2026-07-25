@@ -32,3 +32,10 @@ void Teacher::displayDetails()
     cout << "Designation: " << teacher_designation << endl;
     cout << "Salary: " << teacher_salary << endl;
 }
+
+
+Teacher::~Teacher(){
+
+    cout << "Teacher destructor called"<<endl;
+
+}

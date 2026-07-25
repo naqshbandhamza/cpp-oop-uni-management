@@ -21,4 +21,5 @@ public:
             string teacher_designation,
             double teacher_salary,Department* department);
     void displayDetails();
+    ~Teacher();
 };

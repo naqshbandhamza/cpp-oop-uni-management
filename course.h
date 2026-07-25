@@ -8,6 +8,7 @@ using namespace std;
 
 class Section;
 class Department;
+class Teacher;
 
 class Course
 {
@@ -29,7 +30,7 @@ public:
     );
 
     // void addSection(Section* section);
-    void addSection(
+    Section* addSection(
         string section_id,
         string section_name,
         string semester,

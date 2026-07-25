@@ -31,13 +31,13 @@ public:
     // void addCourse(Course* course);
     // void addTeacher(Teacher* teacher);
 
-    void addCourse(
+    Course* addCourse(
         string course_name,
         string course_id,
         int course_credits
     );
 
-    void addTeacher(
+    Teacher* addTeacher(
         string person_name,
         string person_id,
         string person_email,
