@@ -38,7 +38,7 @@ public:
         Teacher* assigned_teacher
     );
 
-    virtual void displayDetails();
+    void displayDetails();
 
     ~Course();
 };
