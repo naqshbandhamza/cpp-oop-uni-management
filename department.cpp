@@ -17,13 +17,56 @@ Department::Department(
 {
 }
 
-void Department::addCourse(Course* course)
+// void Department::addCourse(Course* course)
+// {
+//     courses.push_back(course);
+// }
+
+// void Department::addTeacher(Teacher* teacher){
+//     teachers.push_back(teacher);
+// }
+
+void Department::addCourse(
+    string course_name,
+    string course_id,
+    int course_credits
+)
 {
-    courses.push_back(course);
+    courses.push_back(
+        new Course(
+            course_name,
+            course_id,
+            course_credits,
+            this
+        )
+    );
 }
 
-void Department::addTeacher(Teacher* teacher){
-    teachers.push_back(teacher);
+
+void Department::addTeacher(
+    string person_name,
+    string person_id,
+    string person_email,
+    string person_phone,
+    string teacher_employeeid,
+    string teacher_specialization,
+    string teacher_designation,
+    double teacher_salary
+)
+{
+    teachers.push_back(
+        new Teacher(
+            person_name,
+            person_id,
+            person_email,
+            person_phone,
+            teacher_employeeid,
+            teacher_specialization,
+            teacher_designation,
+            teacher_salary,
+            this
+        )
+    );
 }
 
 
@@ -49,4 +92,19 @@ void Department::displayDetails()
             course->displayDetails();
         }
     }
+}
+
+Department::~Department(){
+    for (Course* course : courses)
+    {
+        delete course;
+    }
+
+    for (Teacher* teacher : teachers)
+    {
+        delete teacher;
+    }
+
+    courses.clear();
+    teachers.clear();
 }

@@ -28,8 +28,27 @@ public:
         University* university
     );
 
-    void addCourse(Course* course);
-    void addTeacher(Teacher* teacher);
+    // void addCourse(Course* course);
+    // void addTeacher(Teacher* teacher);
+
+    void addCourse(
+        string course_name,
+        string course_id,
+        int course_credits
+    );
+
+    void addTeacher(
+        string person_name,
+        string person_id,
+        string person_email,
+        string person_phone,
+        string teacher_employeeid,
+        string teacher_specialization,
+        string teacher_designation,
+        double teacher_salary
+    );
 
     void displayDetails();
+
+    ~Department();
 };

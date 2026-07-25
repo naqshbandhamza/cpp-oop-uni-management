@@ -83,3 +83,14 @@ void Section::displayDetails()
         }
     }
 }
+
+
+Section::~Section()
+{
+    for(Attendance* attendance : attendance_records)
+    {
+        delete attendance;
+    }
+
+    attendance_records.clear();
+}

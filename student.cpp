@@ -8,6 +8,7 @@ Student::Student(string person_name, string person_id, string person_email, stri
 {
     this->student_rollno=student_rollno;
     this->student_semester =student_semester;
+    this->student_cgpa = 0;
 }
 
 void Student::addSection(Section* section)

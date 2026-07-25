@@ -28,7 +28,16 @@ public:
         Department* department
     );
 
-    void addSection(Section* section);
+    // void addSection(Section* section);
+    void addSection(
+        string section_id,
+        string section_name,
+        string semester,
+        string schedule,
+        Teacher* assigned_teacher
+    );
 
     virtual void displayDetails();
+
+    ~Course();
 };

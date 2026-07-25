@@ -10,9 +10,9 @@ University::University(string uni_name, string uni_address)
 {
 }
 
-void University::addDepartment(Department* department)
+void University::addDepartment(string dep_name, string dep_id)
 {
-    departments.push_back(department);
+    departments.push_back(new Department(dep_name, dep_id, this));
 }
 
 void University::displayDetails()
@@ -28,7 +28,7 @@ void University::displayDetails()
         return;
     }
 
-    for (Department* department : departments)
+    for (Department *department : departments)
     {
         cout << "------------------------" << endl;
 
@@ -37,4 +37,14 @@ void University::displayDetails()
             department->displayDetails();
         }
     }
+}
+
+
+University::~University(){
+     for (Department* department : departments)
+    {
+        delete department;
+    }
+
+    departments.clear();
 }

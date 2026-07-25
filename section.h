@@ -46,6 +46,7 @@ public:
         bool present
     );
 
-
     void displayDetails();
+
+    ~Section();
 };

@@ -12,10 +12,9 @@ class University{
 
     vector<Department*> departments;
 
-    void addDepartment(Department* department);
-
     public:
     University(string uni_name,string uni_address);
+    void addDepartment(string dep_name, string dep_id);
     void displayDetails();
-
+    ~University();
 };

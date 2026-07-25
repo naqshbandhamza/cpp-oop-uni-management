@@ -18,10 +18,32 @@ Course::Course(
 {
 }
 
-void Course::addSection(Section* section)
+// void Course::addSection(Section* section)
+// {
+//     sections.push_back(section);
+// }
+
+void Course::addSection(
+    string section_id,
+    string section_name,
+    string semester,
+    string schedule,
+    Teacher* assigned_teacher
+)
 {
-    sections.push_back(section);
+    sections.push_back(
+        new Section(
+            section_id,
+            section_name,
+            semester,
+            schedule,
+            this,
+            assigned_teacher
+        )
+    );
 }
+
+
 
 void Course::displayDetails()
 {
@@ -46,4 +68,13 @@ void Course::displayDetails()
             section->displayDetails();
         }
     }
+}
+
+Course::~Course(){
+    for (Section* section : sections)
+    {
+        delete section;
+    }
+
+    sections.clear();
 }
